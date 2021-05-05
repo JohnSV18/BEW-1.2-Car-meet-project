@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
-from wtform.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, URL
 
 class carEventForm(FlaskForm):
     """For creating car meet events"""
@@ -12,6 +12,7 @@ class carForm(FlaskForm):
     """For creating car that will be coming to car meet"""
     model_name = StringField('Car model', validators=[DataRequired()])
     make_name = StringField('Car make', validators=[DataRequired()])
+    photo_url = StringField('Photo', validators=[DataRequired(), URL(message='Must be a valid URL')])
     submit = SubmitField('Submit')
     
 class SignUpForm(FlaskForm):

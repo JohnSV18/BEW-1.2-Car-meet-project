@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from app.config import Config
+from flask_bcrypt import Bcrypt
+from car_app.config import Config
+
 import os
 
 app = Flask(__name__)
@@ -21,10 +23,10 @@ db = SQLAlchemy(app)
 # Blueprints
 ###########################
 
-from app.main.routes import main as main_routes
+from car_app.main.routes import main as main_routes
 app.register_blueprint(main_routes)
 
-from app.auth.routes import auth as auth_routes
+from car_app.auth.routes import auth as auth_routes
 app.register_blueprint(auth_routes)
 
 with app.app_context():

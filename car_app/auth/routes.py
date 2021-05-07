@@ -4,8 +4,11 @@ from car_app.auth.forms import LoginForm, SignUpForm
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_bcrypt import Bcrypt
 
+from car_app import app, db
+
 
 auth = Blueprint('auth', __name__)
+bcrypt = Bcrypt(app)
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():

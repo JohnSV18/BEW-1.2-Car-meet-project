@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Item - {{ car.model_name }}</h1>
+
+<p><img src="{{ car.photo_url }}" width="250px" height="250px"></p>
+
+<p><strong>Price:</strong> {{ car.model_make }}</p>
+
+<p><strong>Created by:{{ current_user.username }}</strong></p>
+
+
+  
+{% endblock %}

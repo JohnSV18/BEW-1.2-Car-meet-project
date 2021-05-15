@@ -7,5 +7,16 @@
 
 <h2>All Events</h2>
 
+{% for event in all_events %}
+<div class="event">
+    <a href="/event/{{ event.id }}">{{ event.title }}</a> 
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <p><strong>Address:</strong> {{ event.address }}</p>
+    <p><strong> Cars Attending:</strong> {{ event.cars|length }}</p>
+    <a href="/car_show/{{ event.id }}">Check car show!</a> 
+    
+</div>
+{% endfor %}
+
 
 {% endblock %}

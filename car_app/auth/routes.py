@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash, Flask
-from car_app.models import CarEvent, Car, User
+from car_app.models import Event, Car, User
 from car_app.auth.forms import LoginForm, SignUpForm
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_bcrypt import Bcrypt

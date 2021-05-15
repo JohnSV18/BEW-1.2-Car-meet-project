@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>CAR MEET - {{ event.title }}</h1>
+
+<h2>What you need to know! - {{ event.description }}</h2>
+
+<h2><strong>Address:</strong> {{ event.address }}</h2>
+
+{% for car in event.cars%}
+
+<h2><strong>car:</strong> {{ car.name }}</h2>
+
+<h2><strong>car make:</strong> {{ car.make_name }}</h2>
+
+<p><img src="{{ car.photo_url }}" width="250px" height="250px"></p>
+
+{% endfor %}
+
+<h3>Edit Event</h3>
+
+<form method='POST' action="{{ url_for('main.event_detail', event_id = event.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Please enter your information:</legend>
+            
+            {{ form.title.label }} 
+            {{ form.title }}
+
+            {{ form.description.label }} 
+            {{ form.description }}
+
+            {{ form.address.label }} 
+            {{ form.address }}
+
+            {{ form.submit }}
+          
+    </fieldset>
+</form>
+
+{% endblock %}

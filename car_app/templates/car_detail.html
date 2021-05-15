@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Car- {{ car.name }}</h1>
+
+<p><img src="{{ car.photo_url }}" width="250px" height="250px"></p>
+
+<p><strong>Price:</strong> {{ car.name }}</p>
+
+<p><strong>Category:</strong> {{ car.make_name }}</p>
+
+<p><strong>Event Attending:</strong> </p>
+
+<p><strong>Created by:{{ current_user.username }}</strong></p>
+
+
+
+<h2>Edit Item</h2>
+
+<form method='POST' action="{{ url_for('main.car_detail', car_id=car.id) }}" >
+    {{ form.csrf_token }}
+
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+            {{ form.name.label }}
+            {{ form.name }}
+        
+            {{ form.make_name.label }}
+            {{ form.make_name }}
+
+            {{ form.photo_url.label }}
+            {{ form.photo_url }}
+
+            {{ form.events.label }}
+            {{ form.events }}
+        
+            {{ form.submit }}
+
+    </fieldset>
+</form>
+
+
+
+  
+{% endblock %}

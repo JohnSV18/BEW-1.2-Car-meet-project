@@ -4,7 +4,7 @@
     <h1 class='d-flex justify-content-center'>Log In</h1>
     <form action="{{ url_for('auth.login') }}" method="POST">
         {{ form.csrf_token }}
-        <fieldset>
+        <fieldset class='d-flex justify-content-center'>
             <legend>Please Log In to continue</legend>
 
             {{ form.username.label }}

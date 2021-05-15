@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <h1 class='d-flex justify-content-center'>Log In</h1>
+    <h1>Log In</h1>
     <form action="{{ url_for('auth.login') }}" method="POST">
         {{ form.csrf_token }}
-        <fieldset class='d-flex justify-content-center'>
+        <fieldset>
             <legend>Please Log In to continue</legend>
 
             {{ form.username.label }}

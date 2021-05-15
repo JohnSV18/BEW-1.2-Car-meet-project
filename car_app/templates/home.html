@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class=home-background>
+    <h1 class='d-flex justify-content-center'>Car Meet Events</h1>
 
-<h1>Car Meet Events</h1>
+    <p class='d-flex justify-content-center'><em>Come take a look at the next car meet event!</em></p>
 
-<p><em>Come take a look at the next car meet event!</em></p>
+    <h2 class='d-flex justify-content-center'>All Events</h2>
 
-<h2>All Events</h2>
-
-{% for event in all_events %}
-<div class="event">
-    <a href="/event/{{ event.id }}">{{ event.title }}</a> 
-    <p><strong>Description:</strong> {{ event.description }}</p>
-    <p><strong>Address:</strong> {{ event.address }}</p>
-    <p><strong> Cars Attending:</strong> {{ event.cars|length }}</p>
-    <a href="/car_show/{{ event.id }}">Check car show!</a> 
-    
+    {% for event in all_events %}
+    <div class="event">
+        
+        <a class="event d-flex justify-content-center" href="/event/{{ event.id }}">{{ event.title }}</a> 
+        <p class="event d-flex justify-content-center"><strong>Description:</strong> {{ event.description }}</p>
+        <p class="event d-flex justify-content-center"><strong>Address:</strong> {{ event.address }}</p>
+        <p class="event d-flex justify-content-center"><strong> Cars Attending:</strong> {{ event.cars|length }}</p>
+        <a class="event d-flex justify-content-center" href="/car_show/{{ event.id }}">Check out the car show!</a> 
+        
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-
 
 {% endblock %}
